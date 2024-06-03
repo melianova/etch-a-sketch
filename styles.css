@@ -1,0 +1,22 @@
+:root {
+    ---size: 16px;
+    --gird-length: 16;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.grid {
+    border: 2px solid black;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    flex: 1 0 calc(100% / var(--gird-length));
+    aspect-ratio: 1;
+    border: 2px solid grey;
+}
