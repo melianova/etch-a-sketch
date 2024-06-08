@@ -19,10 +19,21 @@ function drawGridCells(gridSideLength) {
         cell.classList.add('cell');
         cell.style.flex = `0 0 ${cellSize}%`;
         cell.addEventListener('mouseenter', (e) => {
-            e.target.style.backgroundColor = VISITED_COLOR;
+            const randomColor = `${getRandomHEXCode()}`;
+            e.target.style.backgroundColor = randomColor;
         });
         grid.appendChild(cell);
     }
+}
+
+function getRandomHEXCode() {
+    const randomNumber = Math.random();
+    const upperBound = 0xffffff;
+    const lowerBound = 1;
+    const range = upperBound - lowerBound;
+    const randomHEXNumbers = (randomNumber * range).toString(16);
+    const randomHEXCode = `#${randomHEXNumbers.split('.')[0]}`;
+    return randomHEXCode;
 }
 
 drawGridCells(DEFAULT_SIDE_LENGTH);
