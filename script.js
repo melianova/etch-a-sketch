@@ -20,7 +20,18 @@ function drawGridCells(gridSideLength) {
         cell.style.flex = `0 0 ${cellSize}%`;
         cell.addEventListener('mouseenter', (e) => {
             const randomColor = `${getRandomHEXCode()}`;
-            e.target.style.backgroundColor = randomColor;
+            if (!e.target.style.backgroundColor)
+                e.target.style.backgroundColor = `${randomColor}`;
+            else {
+                if (!e.target.style?.filter) {
+                    e.target.style.filter = `brightness(0.9)`;
+                } else {
+                    const currentBrightness = +e.target.style.filter.split('(')[1].split(')')[0];
+                    if (currentBrightness != 0)
+                        e.target.style.filter = `brightness(${currentBrightness - 0.1})`;
+                }
+                
+            }
         });
         grid.appendChild(cell);
     }
