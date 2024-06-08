@@ -1,7 +1,3 @@
-:root {
-    --gird-length: 16;
-}
-
 * {
     box-sizing: border-box;
 }
@@ -15,7 +11,11 @@
 }
 
 .cell {
-    flex: 1 0 calc(100% / var(--gird-length));
     aspect-ratio: 1;
     border: 2px solid grey;
+}
+
+.button {
+    display: block;
+    margin: 10px auto;
 }
